@@ -62,7 +62,7 @@
         - Custom validator functions
         - Schema-based validation
 
-    ## 🚫 Security Protection -(not yet)
+    ## 🚫 Security Protection
 
         Path traversal prevention -> done
 
@@ -120,7 +120,7 @@
 
     Streaming / line-by-line parsing (avoid full file in memory) -> done
 
-    Caching parsed results for faster reloads
+    Caching parsed results for faster reloads -> (for v2)
 
 # 🖥️ Cross-platform Compatibility -> done
 
@@ -130,17 +130,17 @@
 
 # 👨‍💻 Better Developer Experience
 
-    Error reporting with context (file name, line number, snippet preview)
+    Error reporting with context (file name, line number, snippet preview) - done
 
-    TypeScript-first support (auto-generate .d.ts typings from schema)
+    TypeScript-first support (auto-generate .d.ts typings from schema) - done
 
     CLI Tooling
 
-    envtool validate (validate against schema)
+    envtool validate (validate against schema) - done
 
-    envtool encrypt (secure variables)
+    envtool encrypt (secure variables) - for (v2)
 
-    envtool decrypt (restore variables)
+    envtool decrypt (restore variables) - for (v2)
 
 
 
