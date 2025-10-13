@@ -30,3 +30,7 @@ async function config(options?: EnvConfigOptions) {
 }
 
 export { config };
+
+export default {
+  config,
+};
