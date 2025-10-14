@@ -1,4 +1,20 @@
+# Source files (we only publish dist/)
 src/
+
+# Dependencies (not needed, users will install themselves)
 node_modules/
+
+# Logs
 *.log
+
+# IDE config
 .vscode/
+
+# Tests & coverage reports
+tests/
+coverage/
+
+# Local environment files
+.env*
+
+plan.md
