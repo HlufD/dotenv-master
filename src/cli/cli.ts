@@ -1,9 +1,10 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env node
 import path from "node:path";
 import type { EnvConfigOptions } from "../types/options.js";
 import type { EnvSchema } from "../types/schema.js";
 import { EnvTool } from "./EnvTool.js";
 import fs from "fs";
+// ts-node for dev
 
 const args = process.argv.slice(2);
 const tool = new EnvTool();

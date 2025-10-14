@@ -1,8 +1,11 @@
 {
-  "name": "doenv",
+  "name": "dotenv-plus",
   "version": "1.0.0",
   "main": "dist/index.js",
   "type": "module",
+  "bin": {
+    "dotenv-plus": "dist/cli.js"
+  },
   "scripts": {
     "dev": "npm run build && node dist/index.js",
     "build": "tsc -p tsconfig.json",
