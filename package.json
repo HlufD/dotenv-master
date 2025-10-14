@@ -1,7 +1,7 @@
 {
   "name": "doenv",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
     "dev": "npm run build && node dist/index.js",
@@ -12,10 +12,6 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@types/node": "^24.5.2",
     "@vitest/coverage-v8": "^3.2.4",
