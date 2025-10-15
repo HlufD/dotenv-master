@@ -12,7 +12,7 @@ const defaultEnvFiles = [
 
 async function loadEnvironment(
   environment: Map<string, string>,
-  options: EnvConfigOptions = {}
+  options: EnvConfigOptions = {},
 ) {
   const {
     path: customFilePath = null,
@@ -31,7 +31,7 @@ async function loadEnvironment(
       if (!resolved.startsWith(cwd)) {
         debug &&
           console.warn(
-            `[ENV WARN] Custom env file "${customFilePath}" is outside the project directory.`
+            `[ENV WARN] Custom env file "${customFilePath}" is outside the project directory.`,
           );
         return environment;
       }
@@ -39,7 +39,7 @@ async function loadEnvironment(
       if (!path.basename(resolved).startsWith(".env")) {
         debug &&
           console.warn(
-            `[ENV WARN] Custom env file "${customFilePath}" does not start with ".env".`
+            `[ENV WARN] Custom env file "${customFilePath}" does not start with ".env".`,
           );
         return environment;
       }
@@ -47,7 +47,7 @@ async function loadEnvironment(
       if (!fs.existsSync(resolved)) {
         debug &&
           console.warn(
-            `[ENV WARN] Custom env file "${customFilePath}" does not exist.`
+            `[ENV WARN] Custom env file "${customFilePath}" does not exist.`,
           );
         return environment;
       }
@@ -77,14 +77,14 @@ async function loadEnvironment(
       } catch (err) {
         debug &&
           console.warn(
-            `[ENV WARN] Failed to read "${filePath}": ${(err as Error).message}`
+            `[ENV WARN] Failed to read "${filePath}": ${(err as Error).message}`,
           );
       }
     }
   } catch (err) {
     debug &&
       console.error(
-        `[ENV ERROR] Unexpected error loading environment: ${(err as Error).message}`
+        `[ENV ERROR] Unexpected error loading environment: ${(err as Error).message}`,
       );
   }
 

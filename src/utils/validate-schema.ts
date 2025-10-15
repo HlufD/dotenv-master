@@ -2,7 +2,7 @@ import type { EnvConfigOptions } from "../types/options.js";
 
 function validateSchema(
   environment: Map<string, string | number | boolean>,
-  options: EnvConfigOptions
+  options: EnvConfigOptions,
 ) {
   const { validationMode: mode = "warn", schema, debug = false } = options;
   const errors: string[] = [];
@@ -31,14 +31,14 @@ function validateSchema(
           value = Number(currValue);
           if (isNaN(value))
             handleValidation(
-              `Environment variable "${key}" should be a number`
+              `Environment variable "${key}" should be a number`,
             );
           break;
 
         case "boolean":
           if (!["true", "false", "1", "0"].includes(String(currValue)))
             handleValidation(
-              `Environment variable "${key}" should be a boolean`
+              `Environment variable "${key}" should be a boolean`,
             );
           value = currValue === "true" || currValue === "1";
           break;
@@ -46,7 +46,7 @@ function validateSchema(
         case "email":
           if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(currValue)))
             handleValidation(
-              `Environment variable "${key}" should be a valid email`
+              `Environment variable "${key}" should be a valid email`,
             );
           break;
 
@@ -55,7 +55,7 @@ function validateSchema(
             new URL(String(currValue));
           } catch {
             handleValidation(
-              `Environment variable "${key}" should be a valid URL`
+              `Environment variable "${key}" should be a valid URL`,
             );
           }
           break;
@@ -63,7 +63,7 @@ function validateSchema(
 
       if (rule.allowedValues && !rule.allowedValues.includes(value)) {
         handleValidation(
-          `Environment variable "${key}" should be one of: ${rule.allowedValues.join(", ")}`
+          `Environment variable "${key}" should be one of: ${rule.allowedValues.join(", ")}`,
         );
       }
 

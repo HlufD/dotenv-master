@@ -2,7 +2,7 @@ import type { VariableDependencies } from "./get-variable-dependencies.js";
 
 function extractDefaultValuesFromDependencies(
   dependencies: VariableDependencies,
-  environment: Map<string, string>
+  environment: Map<string, string>,
 ) {
   for (const env in dependencies) {
     for (const variable of dependencies[env]!) {

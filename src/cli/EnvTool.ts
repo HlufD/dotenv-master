@@ -5,7 +5,7 @@ import { config } from "../index.js";
 export class EnvTool {
   async load(
     options: EnvConfigOptions = {},
-    cmd: string[] = []
+    cmd: string[] = [],
   ): Promise<Map<string, string>> {
     try {
       const environment = await config(options);
@@ -14,7 +14,7 @@ export class EnvTool {
         console.log(
           [...environment.entries()]
             .map(([key, value]) => `${key}=${value}`)
-            .join("\n")
+            .join("\n"),
         );
       } else {
         console.log("EnvTool: Environment loaded");

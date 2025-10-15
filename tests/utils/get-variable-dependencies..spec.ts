@@ -93,5 +93,4 @@ describe("getVariableDependencies", () => {
     const result = getVariableDependencies("A", "${} $");
     expect(result).toEqual({ A: [] });
   });
-
 });

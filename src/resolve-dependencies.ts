@@ -1,7 +1,7 @@
 function resolveDependencies(
   environment: Map<string, string>,
   dependencyGraph: Record<string, Array<any>>,
-  topologicalOrder: string[]
+  topologicalOrder: string[],
 ) {
   for (const env of topologicalOrder) {
     if (dependencyGraph[env]) {
@@ -14,7 +14,7 @@ function resolveDependencies(
 
         environment.set(
           env,
-          environment.get(env)!.replace(placeholder, environment.get(key)!)
+          environment.get(env)!.replace(placeholder, environment.get(key)!),
         );
       }
     }

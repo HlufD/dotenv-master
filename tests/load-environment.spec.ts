@@ -72,7 +72,7 @@ describe("loadEnvironment", () => {
 
     expect(result).toBe(envMap);
     expect(console.warn).toHaveBeenCalledWith(
-      expect.stringContaining("outside the project directory")
+      expect.stringContaining("outside the project directory"),
     );
   });
 
@@ -85,7 +85,7 @@ describe("loadEnvironment", () => {
 
     expect(result).toBe(envMap);
     expect(console.warn).toHaveBeenCalledWith(
-      expect.stringContaining('does not start with ".env"')
+      expect.stringContaining('does not start with ".env"'),
     );
   });
 
@@ -100,7 +100,7 @@ describe("loadEnvironment", () => {
 
     expect(result).toBe(envMap);
     expect(console.warn).toHaveBeenCalledWith(
-      expect.stringContaining("does not exist")
+      expect.stringContaining("does not exist"),
     );
   });
 
@@ -144,7 +144,7 @@ describe("loadEnvironment", () => {
     expect(readEnvFile).toHaveBeenCalledTimes(1);
     expect(readEnvFile).toHaveBeenCalledWith(
       path.resolve(process.cwd(), ".env"),
-      expect.any(Boolean)
+      expect.any(Boolean),
     );
   });
 
@@ -180,7 +180,7 @@ describe("loadEnvironment", () => {
     });
 
     expect(console.warn).toHaveBeenCalledWith(
-      expect.stringContaining("does not exist")
+      expect.stringContaining("does not exist"),
     );
   });
 
@@ -194,7 +194,7 @@ describe("loadEnvironment", () => {
 
     expect(result).toBe(envMap);
     expect(console.warn).toHaveBeenCalledWith(
-      expect.stringContaining("Failed to read")
+      expect.stringContaining("Failed to read"),
     );
   });
 
@@ -205,7 +205,7 @@ describe("loadEnvironment", () => {
 
     expect(result).toBe(envMap);
     expect(console.warn).toHaveBeenCalledWith(
-      expect.stringContaining("No environment files found to load")
+      expect.stringContaining("No environment files found to load"),
     );
   });
 
@@ -218,7 +218,7 @@ describe("loadEnvironment", () => {
 
     expect(result).toBe(envMap);
     expect(console.error).toHaveBeenCalledWith(
-      expect.stringContaining("Unexpected error loading environment")
+      expect.stringContaining("Unexpected error loading environment"),
     );
   });
 
@@ -286,7 +286,7 @@ describe("loadEnvironment", () => {
 
     expect(result).toBe(envMap);
     expect(console.warn).toHaveBeenCalledWith(
-      expect.stringContaining("outside the project directory")
+      expect.stringContaining("outside the project directory"),
     );
   });
 
@@ -299,7 +299,7 @@ describe("loadEnvironment", () => {
 
     expect(result).toBe(envMap);
     expect(console.warn).toHaveBeenCalledWith(
-      expect.stringContaining("outside the project directory")
+      expect.stringContaining("outside the project directory"),
     );
   });
 

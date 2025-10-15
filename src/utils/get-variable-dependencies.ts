@@ -8,14 +8,14 @@ type VariableDependencies = Record<string, Dependency[]>;
 
 function getVariableDependencies(
   variableName: string,
-  value?: string
+  value?: string,
 ): VariableDependencies {
   const dependencies: VariableDependencies = { [variableName]: [] };
 
   if (typeof value !== "string") return dependencies;
 
   const matches: RegExpMatchArray[] = Array.from(
-    value.matchAll(/(?<!\\)\$\{([^}]+)\}|(?<!\\)\$([a-zA-Z0-9]+)/g)
+    value.matchAll(/(?<!\\)\$\{([^}]+)\}|(?<!\\)\$([a-zA-Z0-9]+)/g),
   );
 
   for (const match of matches) {

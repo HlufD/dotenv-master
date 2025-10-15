@@ -37,7 +37,7 @@ async function readEnvFile(path: string, multiline?: boolean) {
       if (trimmedLine.endsWith("'") || trimmedLine.endsWith('"')) {
         environment[curKey.trim()] = buffer[curKey.trim()]!.replace(
           /^["']|["']$/g,
-          ""
+          "",
         );
         buffer = {};
         isMultiLineStatus = false;

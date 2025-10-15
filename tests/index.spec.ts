@@ -47,7 +47,7 @@ describe("config function comprehensive tests", () => {
         env.set("NEWLINE", "line1\\nline2");
         env.set("TAB", "col1\\tcol2");
         return env;
-      }
+      },
     );
 
     const env = await config(null);
@@ -61,7 +61,7 @@ describe("config function comprehensive tests", () => {
       async (env: Map<string, string>, options?: any) => {
         env.set("COMPLEX", "\\nStart\\tMiddle\\nEnd");
         return env;
-      }
+      },
     );
 
     const env = await config(null);
@@ -86,7 +86,7 @@ describe("config function comprehensive tests", () => {
         env.set("TEST_VAR", "123");
         env.set("A", "${TEST_VAR}");
         return env;
-      }
+      },
     );
 
     const env = await config({ expand: true });
@@ -98,7 +98,7 @@ describe("config function comprehensive tests", () => {
       async (env: Map<string, string>, options?: any) => {
         env.set("SELF", "${SELF}");
         return env;
-      }
+      },
     );
 
     await expect(config(null)).rejects.toThrow("Cycle detected at node SELF");
@@ -109,7 +109,7 @@ describe("config function comprehensive tests", () => {
       async (env: Map<string, string>, options?: any) => {
         env.set("EMPTY", "${UNKNOWN}");
         return env;
-      }
+      },
     );
 
     const env = await config({ expand: true });
@@ -121,7 +121,7 @@ describe("config function comprehensive tests", () => {
       async (env: Map<string, string>, options?: any) => {
         env.set("MULTI", "${X}${Y}${Z}");
         return env;
-      }
+      },
     );
 
     const env = await config({ expand: true });
@@ -134,7 +134,7 @@ describe("config function comprehensive tests", () => {
         env.set("A", "${B}");
         env.set("B", "${C}");
         return env;
-      }
+      },
     );
 
     const env = await config({ expand: true });
@@ -149,7 +149,7 @@ describe("config function comprehensive tests", () => {
         env.set("Y", "2");
         env.set("Z", "${X}${Y}");
         return env;
-      }
+      },
     );
 
     const env = await config({ expand: true });
@@ -163,7 +163,7 @@ describe("config function comprehensive tests", () => {
         env.set("B", "${A}b");
         env.set("C", "${B}c");
         return env;
-      }
+      },
     );
 
     const env = await config({ expand: true });
@@ -177,7 +177,7 @@ describe("config function comprehensive tests", () => {
         env.set("B", "b");
         env.set("C", "${A}${B}");
         return env;
-      }
+      },
     );
 
     const env = await config({ expand: true });
@@ -188,7 +188,7 @@ describe("config function comprehensive tests", () => {
     loadEnvSpy.mockImplementationOnce(
       async (env: Map<string, string>, options?: any) => {
         return env; // No variables set
-      }
+      },
     );
 
     const env = await config(null);
@@ -200,7 +200,7 @@ describe("config function comprehensive tests", () => {
       async (env: Map<string, string>, options?: any) => {
         env.set("FOO", "bar");
         return env;
-      }
+      },
     );
 
     const env = await config(null);
@@ -213,7 +213,7 @@ describe("config function comprehensive tests", () => {
         env.set("X", "1");
         env.set("Y", "${X}${Z}");
         return env;
-      }
+      },
     );
 
     const env = await config({ expand: true });
@@ -228,7 +228,7 @@ describe("config function comprehensive tests", () => {
         env.set("C", "${B}");
         env.set("D", "${C}");
         return env;
-      }
+      },
     );
 
     const env = await config({ expand: true });
@@ -241,7 +241,7 @@ describe("config function comprehensive tests", () => {
         env.set("SPACE", "a b");
         env.set("SPECIAL", "@!$%^&*()");
         return env;
-      }
+      },
     );
 
     const env = await config({ expand: true });
@@ -256,7 +256,7 @@ describe("config function comprehensive tests", () => {
         env.set("B", "b");
         env.set("C", "${A}${B}${D}");
         return env;
-      }
+      },
     );
 
     const env = await config({ expand: true });
@@ -269,7 +269,7 @@ describe("config function comprehensive tests", () => {
         env.set("TEST_VAR", "123");
         env.set("NEW", "line\\n${TEST_VAR}");
         return env;
-      }
+      },
     );
 
     escapeSpy.mockImplementation((env: Map<string, string>) => {
@@ -293,12 +293,12 @@ describe("config function comprehensive tests", () => {
           prev = key;
         }
         return env;
-      }
+      },
     );
 
     const env = await config({ expand: true });
     expect(env.get("VAL50")).toBe(
-      "01234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950"
+      "01234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950",
     );
   });
 });

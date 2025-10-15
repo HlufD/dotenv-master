@@ -50,7 +50,7 @@ describe("parseEscapes", () => {
 
   it("should handle multiple escapes in the same string", () => {
     expect(parseEscapes("Line1\\nLine2\\tTabbed\\u0021")).toBe(
-      "Line1\nLine2\tTabbed!"
+      "Line1\nLine2\tTabbed!",
     );
   });
 

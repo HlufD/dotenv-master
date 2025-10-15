@@ -11,41 +11,48 @@
 ## 🚀 Features
 
 ### Core Parsing
+
 - Parse `KEY=value` assignments
 - Supports multi-line values
 - Handles quotes and inline comments
 - Preserves `#` inside quoted strings
 
 ### Advanced Syntax
+
 - Variable expansion (`${VAR}`, `${VAR:-default}`)
 - Circular reference detection
 - Required variables `${MUST_SET:?error}`
 - Escape sequences: `\n`, `\t`, `\\`, `\$`, `\uXXXX`
 
 ### File Management
+
 - Supports `.env`, `.env.local`, `.env.{NODE_ENV}`, `.env.{NODE_ENV}.local`
 - Custom file paths
 - Loading precedence rules (environment & local overrides)
 - Merge strategies (override, combine, smart — partial support)
 
 ### Security & Validation
+
 - Required variable enforcement
 - Type validation (string, number, boolean, email, URL)
 - Regex and custom validation
 - Path traversal protection
 
 ### Value Processing
+
 - Automatic type conversion (Boolean, Number)
 - Default values for missing variables
 - Configurable variable resolution order
 - Process environment variable integration
 
 ### CLI Tooling
+
 - `dotenv-master load` – load variables into process.env
 - `dotenv-master validate` – validate environment variables against schema
 - (Planned) `dotenv-master encrypt` / `decrypt` for secure variable management
 
 ### Developer & Production Features
+
 - Handles large `.env` files (1000+ lines)
 - Streaming/line-by-line parsing
 - Detailed error reporting (file, line, snippet)
@@ -64,7 +71,9 @@ npm install dotenv-master --save-dev
 npm install -g dotenv-master
 
 ```
+
 ## ⚙️ Usage
+
 ```bash
 import { config } from "dotenv-master";
 
@@ -78,11 +87,11 @@ await config({
     DATABASE_URL: { required: true, type: "string" },
     PORT: { required: true, type: "number", allowedValues: [3000, 4000, 5000] },
     DEBUG: { required: false, type: "boolean" },
-    API_KEY: { 
-      required: true, 
-      type: "string", 
-      regex: /^[A-Z0-9]+$/, 
-      custom: (value) => value.startsWith("API_") || "API_KEY must start with 'API_'" 
+    API_KEY: {
+      required: true,
+      type: "string",
+      regex: /^[A-Z0-9]+$/,
+      custom: (value) => value.startsWith("API_") || "API_KEY must start with 'API_'"
     }
   },
   validationMode: "throw", // or "warn"
@@ -93,6 +102,7 @@ console.log(process.env.PORT);
 ```
 
 ## CLI
+
 ```bash
 # Load environment variables
 dotenv-master load --path .env --debug
@@ -120,25 +130,29 @@ Flags:
 ```
 
 ## 📁 Example Schema
-``` bash
+
+```bash
 {
     DATABASE_URL: { required: true, type: "string" },
     PORT: { required: true, type: "number", allowedValues: [3000, 4000, 5000] },
     DEBUG: { required: false, type: "boolean" },
-    API_KEY: { 
-      required: true, 
-      type: "string", 
-      regex: /^[A-Z0-9]+$/, 
-      custom: (value) => value.startsWith("API_") || "API_KEY must start with 'API_'" 
+    API_KEY: {
+      required: true,
+      type: "string",
+      regex: /^[A-Z0-9]+$/,
+      custom: (value) => value.startsWith("API_") || "API_KEY must start with 'API_'"
     }
   }
-  ```
+```
 
-##   📜 License
+## 📜 License
+
 MIT License © [Hluf Abebe]
 
 ## ❤️ Contributing
+
 Contributions are welcome! Please open issues or PRs for features, bug fixes, or improvements.
 
 ## 🔗 Links
+
 [GitHub Repository](https://github.com/HlufD/dotenv-master)

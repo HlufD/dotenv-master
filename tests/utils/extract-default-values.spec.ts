@@ -6,7 +6,7 @@ describe("extractDefaultValuesFromDependencies", () => {
   let consoleSpy: ReturnType<typeof vi.spyOn>;
 
   beforeEach(() => {
-    consoleSpy = vi.spyOn(console, "log").mockImplementation(() => { });
+    consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {});
   });
 
   afterEach(() => {
@@ -179,7 +179,7 @@ describe("extractDefaultValuesFromDependencies", () => {
 
     const env = new Map<string, string>();
     expect(() => extractDefaultValuesFromDependencies(input, env)).toThrow(
-      "API_KEY is required"
+      "API_KEY is required",
     );
   });
 
@@ -218,7 +218,6 @@ describe("extractDefaultValuesFromDependencies", () => {
       placeholder: "${API_KEY}",
       defaultValue: "",
     });
-
   });
 
   it("should handle dependencies with no token after cleaning match", () => {
@@ -255,7 +254,12 @@ describe("extractDefaultValuesFromDependencies", () => {
 
   it("should not throw for required variable with empty string in environment", () => {
     const input: VariableDependencies = {
-      API_KEY: [{ dependency: "API_KEY:?Required", placeholder: "${API_KEY:?Required}" }],
+      API_KEY: [
+        {
+          dependency: "API_KEY:?Required",
+          placeholder: "${API_KEY:?Required}",
+        },
+      ],
     };
     const env = new Map([["API_KEY", ""]]);
 
@@ -284,5 +288,4 @@ describe("extractDefaultValuesFromDependencies", () => {
     });
     expect(env.get("FOO")).toBe("${FOO}");
   });
-
 });
