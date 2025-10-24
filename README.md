@@ -6,7 +6,11 @@
 
 **Dotenv Master** is a modern, TypeScript-first environment file parser and CLI tool for Node.js, designed to handle complex `.env` files, variable expansion, validation, and more.
 
+Full Documentation
+[deepWiki documentation](https://deepwiki.com/HlufD/dotenv-master)
+
 ---
+
 
 ## 🚀 Features
 
